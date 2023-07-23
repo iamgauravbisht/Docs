@@ -5,8 +5,8 @@ import accountlogo from "../assets/account.svg";
 
 function Header() {
   return (
-    <header className="w-full">
-      <nav className="  flex justify-between items-center py-3 sticky ">
+    <header className="w-full ">
+      <nav className="flex justify-between items-center py-3  md:flex-row md:relative">
         <div className="flex gap-3">
           <img src={menulogo} alt="menu" className="cursor-pointer" />
           <div className="brand flex items-center justify-center gap-3 cursor-pointer">
@@ -16,8 +16,10 @@ function Header() {
         </div>
 
         <div
-          className=" absolute left-1/2 -translate-x-1/2
-        flex border border-black  rounded-lg px-2 w-1/2"
+          className=" 
+         hidden border border-black  rounded-lg px-2  
+        md:flex  lg:absolute lg:left-1/2 lg:-translate-x-1/2 md:w-1/2
+        "
         >
           <input type="text" className="outline-none w-full p-1" />
           <img src={searchlogo} alt="" />
@@ -27,6 +29,16 @@ function Header() {
           <img src={accountlogo} alt="" />
         </div>
       </nav>
+
+      <div
+        className=" 
+        flex border border-black  rounded-lg px-2 w-full mt-3 
+        md:hidden 
+        "
+      >
+        <input type="text" className="outline-none w-full p-1" />
+        <img src={searchlogo} alt="" />
+      </div>
     </header>
   );
 }
