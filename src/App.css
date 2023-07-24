@@ -1,3 +1,69 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 #root {
+  width: 100vw;
   max-width: 2000px;
+}
+
+/* toolbar styling */
+.wrapper > .ql-toolbar {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+/* text box styling*/
+.wrapper > .ql-container {
+  border: none;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.wrapper > .ql-container > .ql-editor {
+  width: 8.5in;
+  height: 11in;
+  margin: 10px;
+  padding: 1in;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid #000;
+  background-color: #f3f3f3;
+}
+
+@page {
+  margin: 0;
+}
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    background-color: none;
+  }
+
+  .wrapper > .ql-toolbar {
+    display: none;
+  }
+  .wrapper > .ql-container {
+    border: none;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 100vw;
+    align-self: flex-start;
+    padding: 0.5in;
+  }
+  .wrapper > .ql-container > .ql-editor {
+    width: 7.5in;
+    height: 10in;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f3f3f3;
+    box-shadow: none;
+  }
 }

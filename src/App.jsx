@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Page from "./components/Page";
-import Untitled from "./components/Untitled";
+import TextEditor from "./components/TextEditor";
 
 function App() {
   const Home = () => {
@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/New-Page" element={<Untitled />} />
+        <Route exact path="/New-Page" element={<TextEditor />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
