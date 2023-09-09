@@ -4,8 +4,10 @@ import searchlogo from "../assets/search.svg";
 import accountlogo from "../assets/account.svg";
 
 function Header() {
+  const logedIn = false;
+
   return (
-    <header className="w-full ">
+    <header className="w-full px-5">
       <nav className="flex justify-between items-center py-3  md:flex-row md:relative">
         <div className="flex gap-3">
           <img src={menulogo} alt="menu" className="cursor-pointer" />
@@ -24,10 +26,17 @@ function Header() {
           <input type="text" className="outline-none w-full p-1" />
           <img src={searchlogo} alt="" />
         </div>
-
-        <div>
-          <img src={accountlogo} alt="" />
-        </div>
+        {logedIn ? (
+          <div>
+            <img src={accountlogo} alt="" />
+          </div>
+        ) : (
+          <div>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Log out
+            </button>
+          </div>
+        )}
       </nav>
 
       <div

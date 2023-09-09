@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import threedotslogo from "../assets/threedots.svg";
 import Row from "./Row";
 
-function Page() {
+const Page = function MyPage() {
   const [showOption, setShowOption] = useState(false);
   const optionRef = useRef(null);
 
@@ -45,6 +45,6 @@ function Page() {
       </div>
     </div>
   );
-}
+};
 
 export default Page;

@@ -1,8 +1,9 @@
+import React from "react";
 import RowCard from "./RowCard";
 import pluslogo from "../assets/plus.svg";
 import { Link } from "react-router-dom";
 
-function Row() {
+const Row = React.memo(function MyRow() {
   return (
     <div
       className="w-full flex flex-col items-center justify-center 
@@ -10,7 +11,7 @@ function Row() {
     "
     >
       <div
-        className="flex w-full items-center bg-[#525FE1] gap-2 m-1 rounded-xl px-5
+        className="flex w-full items-center bg-[#800080] gap-2 m-1 rounded-xl px-5
           lg:h-44 lg:mr-1 lg:flex-col lg:justify-center lg:p-0
         "
       >
@@ -28,23 +29,14 @@ function Row() {
           </Link>
         </div>
       </div>
-      {/* <div className="flex flex-col gap-2 m-1">
-        <Link to="/New-Page" className="text-black ">
-          <div className="w-32 h-44 border border-gray-400 p-2 cursor-pointer">
-            <img src={pluslogo} alt="pluslogo" className="w-full h-full" />
-          </div>
-          <small className="font-semibold">Blank</small>
-        </Link>
-      </div> */}
 
-      {/* <RowCard title={} description={} img={} /> */}
-      <RowCard />
-      <RowCard />
-      <RowCard />
-      <RowCard />
-      <RowCard />
+      <RowCard bgColor={` bg-[#FF0000]`} />
+      <RowCard bgColor={` bg-[#0000FF]`} />
+      <RowCard bgColor={` bg-[#00FF00]`} />
+      <RowCard bgColor={` bg-[#FFFF00]`} />
+      <RowCard bgColor={` bg-[#FFA500]`} />
     </div>
   );
-}
+});
 
 export default Row;

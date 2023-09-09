@@ -1,24 +1,6 @@
 import { Link } from "react-router-dom";
 
-function RowCard({ title, description, img }) {
-  const allColor = [
-    "bg-[#1D5D9B]",
-    "bg-[#F31559]",
-    "bg-[#525FE1]",
-    "bg-[#3AA6B9]",
-    "bg-[#FFEA20]",
-    "bg-[#D61355]",
-    "bg-[#FFB100]",
-    "bg-[#FF6D60]",
-    "bg-[#FF8787]",
-    "bg-[#B5C99A]",
-    "bg-[#F9E2AF]",
-    "bg-[#EB455F]",
-    "bg-[#BAD7E9]",
-  ];
-  const randomIndex = Math.floor(Math.random() * 13);
-  const bgColor = allColor[randomIndex];
-
+function RowCard({ bgColor, title, description, img }) {
   return (
     <div
       className={`flex w-full items-center  ${bgColor} gap-2 m-1 rounded-xl px-5
