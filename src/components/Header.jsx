@@ -2,9 +2,15 @@ import menulogo from "../assets/menu.svg";
 import docslogo from "../assets/docs.svg";
 import searchlogo from "../assets/search.svg";
 import accountlogo from "../assets/account.svg";
+import { logout } from "../authController/authController";
 
 function Header() {
-  const logedIn = false;
+  const logoutHandler = async () => {
+    const data = await logout();
+    if (data.message === "logged out") {
+      window.location.href = "/";
+    }
+  };
 
   return (
     <header className="w-full px-5">
@@ -26,17 +32,16 @@ function Header() {
           <input type="text" className="outline-none w-full p-1" />
           <img src={searchlogo} alt="" />
         </div>
-        {logedIn ? (
-          <div>
-            <img src={accountlogo} alt="" />
-          </div>
-        ) : (
-          <div>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Log out
-            </button>
-          </div>
-        )}
+
+        <div className="flex gap-2">
+          <img src={accountlogo} alt="" />
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={logoutHandler}
+          >
+            Log out
+          </button>
+        </div>
       </nav>
 
       <div

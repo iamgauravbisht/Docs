@@ -8,8 +8,18 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginHandler = (email, password) => {
-    login_post(email, password);
+  const loginHandler = async (email, password) => {
+    //clear all error messages
+    emailError.current.textContent = "";
+    passwordError.current.textContent = "";
+    try {
+      const data = await login_post(email, password);
+      if (data.user) {
+        window.location.href = "/";
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className="flex justify-center items-center  bg-black">

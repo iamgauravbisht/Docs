@@ -1,7 +1,18 @@
 import Login from "./Login";
 import Signup from "./Signup";
-import { useState } from "react";
+import Home from "./Home";
+import { useEffect, useState } from "react";
+import { verifyAuth } from "../authController/authController";
+
 function Welcome() {
+  const [verifyToken, setVerifyToken] = useState({ user: null });
+
+  useEffect(() => {
+    verifyAuth().then((data) => {
+      setVerifyToken(data);
+    });
+  }, []);
+
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -14,7 +25,7 @@ function Welcome() {
     setShowLogin(!showLogin);
   };
 
-  return (
+  return verifyToken.user === null ? (
     <div
       className="w-screen h-screen flex justify-center gap-14 items-center  bg-black
     max-sm:flex-col
@@ -42,6 +53,8 @@ function Welcome() {
         {showSignup ? <Signup /> : null}
       </div>
     </div>
+  ) : (
+    <Home />
   );
 }
 

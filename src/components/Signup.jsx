@@ -1,20 +1,6 @@
 import { signup_post } from "../authController/authController";
 import { useRef, useState } from "react";
 
-// function getCookie(name) {
-//   const cookies = document.cookie.split(";");
-
-//   for (let i = 0; i < cookies.length; i++) {
-//     const cookie = cookies[i].trim();
-
-//     if (cookie.startsWith(name + "=")) {
-//       return cookie.substring(name.length + 1);
-//     }
-//   }
-
-//   return null;
-// }
-
 function Signup() {
   const usernameError = useRef();
   const emailError = useRef();
@@ -47,12 +33,9 @@ function Signup() {
           usernameError.current.textContent = data.errors.username;
         }
       } else {
-        // if the request is successful, display the data
+        // if there is no error, redirect the user to the home page
         if (data) {
-          console.log(data, "document.cookie", document.cookie);
-          // Accessing and storing the authToken cookie
-          // const authToken = getCookie("authToken");
-          // console.log(authToken);
+          window.location.href = "/";
         }
 
         // clear the input fields if the user is successfully signed up
